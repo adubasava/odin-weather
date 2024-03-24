@@ -1,6 +1,6 @@
 ﻿body {
     height: 100vh;
-    /* background-image: linear-gradient(rgb(220, 200, 200), rgb(249, 239, 239)); */
+    background-image: url(./img/pexels-curioso-photography-288100.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +14,7 @@
     padding: 30px;
     width: max(25%, 400px);
     height: 75%;
-    background-color: rgb(169, 169, 169, 0.3);
+    background-color: rgb(191, 195, 206, 0.9);
     box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 2px 0px rgba(0,0,0,0.75);
@@ -88,4 +88,26 @@ img {
     background-color: pink;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
+}
+
+#loading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #D5B276;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+}
+#loading.display {
+    visibility: visible;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

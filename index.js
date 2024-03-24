@@ -12,14 +12,18 @@ const windSpeed = document.getElementById('wind-speed');
 const updated = document.getElementById('updated');
 const err = document.getElementById('error');
 const img = document.querySelector('img');
+const loader = document.querySelector('#loading');
 
 function showWeatherByLocation(locatio) {
+    displayLoading();
+
     fetch(`https://api.weatherapi.com/v1/current.json?key=55ed21aea8da4e5298a175558242303&q=${locatio}`, {mode: 'cors'})
     .then(function(response) {
         console.log(`${response.status}`)
         return response.json();
     })
-    .then(function(response) {      
+    .then(function(response) {
+      hideLoading();            
       err.textContent = ''
       currentLocation.textContent = `${response.location.name}, ${response.location.country}`.toUpperCase();
       conditionText.textContent = `${response.current.condition.text}`;
@@ -27,7 +31,7 @@ function showWeatherByLocation(locatio) {
       windDir.textContent = `Wind direction ${response.current.wind_dir}`;
       windSpeed.textContent = `Wind speed ${response.current.wind_kph} km/h / ${response.current.wind_mph} mph`;
       updated.textContent = `Last updated ${response.current.last_updated}`;
-      showNewImage(`${response.current.condition.text}`);
+      //showNewImage(`${response.current.condition.text}`);
       
       if (toggleTempBtn.textContent === 'Switch to °F') {
         temperature.textContent = `${response.current.temp_c}° C`;
@@ -83,4 +87,15 @@ function showNewImage(item) {
     .catch(function(err) {
         console.log('error')
     });
+}
+
+function displayLoading() {
+    loader.classList.add('display');
+    setTimeout(() => {
+        loader.classList.remove('display');
+    }, 5000);
+}
+
+function hideLoading() {
+    loader.classList.remove('display');
 }
