@@ -1,1 +1,3 @@
-# odin-weather
+# Odin Weather Project
+
+API, fetch
