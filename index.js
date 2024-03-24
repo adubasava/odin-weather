@@ -31,7 +31,7 @@ function showWeatherByLocation(locatio) {
       windDir.textContent = `Wind direction ${response.current.wind_dir}`;
       windSpeed.textContent = `Wind speed ${response.current.wind_kph} km/h / ${response.current.wind_mph} mph`;
       updated.textContent = `Last updated ${response.current.last_updated}`;
-      //showNewImage(`${response.current.condition.text}`);
+      showNewImage(`${response.current.condition.text}`);
       
       if (toggleTempBtn.textContent === 'Switch to °F') {
         temperature.textContent = `${response.current.temp_c}° C`;
